@@ -1,22 +1,30 @@
 import { useSelector, useDispatch } from "react-redux";
 import {
-  incrementCount,
-  decrementCount,
-  resetCount,
-} from "../store/actions.js";
+  incrementCounter,
+  decrementCounter,
+  resetCounter,
+} from "../store/counter/action.js";
 
 const Counter = () => {
-  const count = useSelector((state) => state.counter);
+  const globalState = useSelector((state) => state.counter.counter);
   const dispatch = useDispatch();
 
   return (
     <div>
       <h1>
-        Count: <span>{count}</span>
+        Count: <span>{globalState}</span>
       </h1>
-      <button onClick={() => dispatch(incrementCount())}>+1</button>
-      <button onClick={() => dispatch(decrementCount())}>-1</button>
-      <button onClick={() => dispatch(resetCount())}>Reset</button>
+      <button
+        onClick={() => {
+          dispatch(incrementCounter(globalState));
+        }}
+      >
+        +1
+      </button>
+      <button onClick={() => dispatch(decrementCounter(globalState))}>
+        -1
+      </button>
+      <button onClick={() => dispatch(resetCounter(globalState))}>Reset</button>
     </div>
   );
 };

@@ -1,18 +1,15 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import Link from "next/link";
-import { startClock } from "../store/actions";
-import Examples from "../components/examples";
+import Counter from "../components/counter";
 
 const Index = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(startClock());
-  }, [dispatch]);
+  //   const dispatch = useDispatch();
+  //   useEffect(() => {
+  //     dispatch(startClock());
+  //   }, [dispatch]);
 
   return (
     <>
-      <Examples />
+      <Counter />
       <Link href="/show-redux-state">
         <a>Click to see current Redux State</a>
       </Link>

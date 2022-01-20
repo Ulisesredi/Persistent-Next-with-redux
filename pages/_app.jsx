@@ -1,12 +1,19 @@
-import { Provider } from "react-redux";
-import { useStore } from "../store";
+import App from "next/app";
+import { wrapper } from "../store/";
+import { useStore } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
-export default function App({ Component, pageProps }) {
-  const store = useStore(pageProps.initialReduxState);
-
-  return (
-    <Provider store={store}>
+function MyApp({ Component, pageProps }) {
+  const store = useStore((state) => state);
+  return process.browser ? (
+    <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
       <Component {...pageProps} />
-    </Provider>
+    </PersistGate>
+  ) : (
+    <PersistGate persistor={store}>
+      <Component {...pageProps} />
+    </PersistGate>
   );
 }
+
+export default wrapper.withRedux(MyApp);

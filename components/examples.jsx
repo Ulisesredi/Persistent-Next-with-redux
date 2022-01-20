@@ -4,7 +4,7 @@ import Counter from "./counter";
 const Examples = () => {
   return (
     <div style={{ marginBottom: 10 }}>
-      <Clock />
+      {/* <Clock /> */}
       <Counter />
     </div>
   );
