@@ -7,7 +7,7 @@ const initialState = {
 };
 
 // Creating my reducer
-export default function reducer(state = initialState, action) {
+export default function counter(state = initialState, action) {
   switch (action.type) {
     case types.INCREMENT:
       return { ...state, counter: action.payload };

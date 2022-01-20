@@ -1,5 +1,4 @@
-import { combineReducers } from "redux";
-import * as types from "../../types/actionTypes";
+import * as types from "./type";
 
 //Initial timer state
 const initialTimerState = {
@@ -8,7 +7,7 @@ const initialTimerState = {
 };
 
 //Timer reducer
-const timerReducer = (state = initialTimerState, { type, payload }) => {
+export default function timer(state = initialTimerState, { type, payload }) {
   switch (type) {
     case types.TICK:
       return {
@@ -18,12 +17,4 @@ const timerReducer = (state = initialTimerState, { type, payload }) => {
     default:
       return state;
   }
-};
-
-//Combined reducers
-const reducers = {
-  counter: counterReducer,
-  // timer: timerReducer,
-};
-
-export default combineReducers(reducers);
+}
