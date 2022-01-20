@@ -1,2 +1,2 @@
-# Next-with-redux
-This is a example of the usage of Next.js with Redux and Redux-Thunk.
+# Persistent Nextjs states
+This is a example of the usage of Next.js with persistent Redux states.
